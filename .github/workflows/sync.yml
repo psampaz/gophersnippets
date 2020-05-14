@@ -10,6 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: generate html content
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
         run: |
           GITHUBTOKEN=${{ secrets.GITHUBTOKEN }} GITHUB_REPOSITORY=${{ github.repository }} ./bin/gophersnippets -github-issues -playground -playground-ua="gophersnippets.com/v1"
           git config --global user.email "${{ secrets.GIT_EMAIL }}"
