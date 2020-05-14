@@ -14,7 +14,8 @@ func Example() {
 	fmt.Println("Max uint8:", math.MaxUint8)
 	fmt.Println("Max uint16:", math.MaxUint16)
 	fmt.Println("Max uint32:", math.MaxUint32)
-	fmt.Println("Max uint64:", uint64(math.MaxUint64)) // See https://github.com/golang/go/issues/19621
+	// See https://github.com/golang/go/issues/19621
+	fmt.Println("Max uint64:", uint64(math.MaxUint64))
 	fmt.Println("Max float32:", math.MaxFloat32)
 	fmt.Println("Max float64:", math.MaxFloat64)
 	// Output:
