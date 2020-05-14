@@ -9,13 +9,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
       - name: generate html content
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
         run: |
           GITHUBTOKEN=${{ secrets.GITHUBTOKEN }} GITHUB_REPOSITORY=${{ github.repository }} ./bin/gophersnippets -github-issues -playground -playground-ua="gophersnippets.com/v1"
           git config --global user.email "${{ secrets.GIT_EMAIL }}"
           git config --global user.name "${{ secrets.GIT_NAME }}"
           git add .
           git diff --staged --quiet || git commit -m "generate html content"
-          git push -f
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUBTOKEN }}          
