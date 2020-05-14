@@ -9,6 +9,9 @@ Each snippet:
 
 ## Conversions
  - [How to convert int to string](https://gophersnippets.com/how-to-convert-int-to-string)
+## Maps
+ - [How to copy a map](https://gophersnippets.com/how-to-copy-a-map)
+ - [How to create a set using a map](https://gophersnippets.com/how-to-create-a-set-using-a-map)
 ## Numbers
  - [How to calculate the sum of multiple numbers](https://gophersnippets.com/how-to-calculate-the-sum-of-multiple-numbers)
  - [What is the maximum value of numeric types](https://gophersnippets.com/what-is-the-maximum-value-of-numeric-types)
@@ -18,6 +21,7 @@ Each snippet:
  - [How to parse comments from Go Code](https://gophersnippets.com/how-to-parse-comments-from-go-code)
 ## Runtime
  - [How to print Go version](https://gophersnippets.com/how-to-print-go-version)
+ - [How to print information about the operating system, architecture and pointer size](https://gophersnippets.com/how-to-print-information-about-the-operating-system-architecture-and-pointer-size)
 ## Slices
  - [How to check if a slice contains a specific element](https://gophersnippets.com/how-to-check-if-a-slice-contains-a-specific-element)
  - [How to find the maximum element of a slice](https://gophersnippets.com/how-to-find-the-maximum-element-of-a-slice)

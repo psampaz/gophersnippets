@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/spectre.min.css">
+    <link rel=stylesheet href="css/highlight.css">
+    <title>How to create a set using a map - GopherSnippets.com</title>
+</head>
+<body>
+<div class="container">
+    <div class="columns">
+        <div class="column col-xs-4"></div>
+        <div class="column col-xs-4">
+            <h2 class="text-dark">GopherSnippets</h2>
+            <p class="cite">Code snippets with tests and testable examples for the Go programming language</p>
+            <h4>How to create a set using a map</h4>
+            <a href="https://gophersnippets.com">Snippets Index</a> - <a target="_blank" href="https://play.golang.org/p/fGL3vnPcdXn">Run code on Go playground</a> -
+            <a target="_blank"
+               href="https://github.com/psampaz/gophersnippets/blob/master/snippets/how-to-create-a-set-using-a-map/main_test.go">Edit</a>
+            <p>
+                <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+
+<span class="c1">// A set is a unordered collection of unique data.
+</span><span class="c1">// Go does not have a built-in set data structure
+</span><span class="c1">// but you can easily create one using a map
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">Example</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">// The map keys are a unique unordered collection.
+</span><span class="c1"></span>	<span class="c1">// So if you just ignore the values, a map can be viewed as a set
+</span><span class="c1"></span>	<span class="c1">// The most space optimized way to do this is to use the empty struct
+</span><span class="c1"></span>	<span class="c1">// as the map value type, since the empty struct (a struct with no fields)
+</span><span class="c1"></span>	<span class="c1">// occupies zero bytes of storage
+</span><span class="c1"></span>	<span class="c1">// https://dave.cheney.net/2014/03/25/the-empty-struct
+</span><span class="c1"></span>	<span class="nx">set</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">struct</span><span class="p">{})</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">set</span><span class="p">)</span>
+	<span class="c1">// Add new elements in the set
+</span><span class="c1"></span>	<span class="nx">set</span><span class="p">[</span><span class="s">&#34;a&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="kd">struct</span><span class="p">{}{}</span>
+	<span class="nx">set</span><span class="p">[</span><span class="s">&#34;b&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="kd">struct</span><span class="p">{}{}</span>
+	<span class="nx">set</span><span class="p">[</span><span class="s">&#34;c&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="kd">struct</span><span class="p">{}{}</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">set</span><span class="p">)</span>
+
+	<span class="c1">// Check if an element exists in the set
+</span><span class="c1"></span>	<span class="k">if</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">exists</span> <span class="o">:=</span> <span class="nx">set</span><span class="p">[</span><span class="s">&#34;a&#34;</span><span class="p">];</span> <span class="nx">exists</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;a exists in the set&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="c1">// Delete an element from the set
+</span><span class="c1"></span>	<span class="nb">delete</span><span class="p">(</span><span class="nx">set</span><span class="p">,</span> <span class="s">&#34;b&#34;</span><span class="p">)</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">set</span><span class="p">)</span>
+	<span class="c1">// Output:
+</span><span class="c1"></span>	<span class="c1">// map[]
+</span><span class="c1"></span>	<span class="c1">// map[a:{} b:{} c:{}]
+</span><span class="c1"></span>	<span class="c1">// a exists in the set
+</span><span class="c1"></span>	<span class="c1">// map[a:{} c:{}]
+</span><span class="c1"></span><span class="p">}</span>
+</pre>
+            </p>
+            <p>
+                <span class="text-gray">by</span> <a href="https://github.com/psampaz" class="text-gray">psampaz</a> -
+                <a href="https://github.com/psampaz/gophersnippets" class="text-gray">source code</a>
+            </p>
+
+        </div>
+        <div class="column col-xs-4"></div>
+    </div>
+</div>
+
+</body>
+</html>
