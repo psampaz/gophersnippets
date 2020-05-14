@@ -33,12 +33,12 @@ func Example() {
 	// The method set of an interface type is its interface.
 	// The method set of any other type T consists of all methods
 	// declared with receiver type T.
-	// The method set of the corresponding pointer type *T is 
+	// The method set of the corresponding pointer type *T is
 	// the set of all methods declared
 	// with receiver *T or T (that is, it also contains the method set of T).
 	//
 	// In other words:
-	// A type T satisfies an interface only if the interface methods are 
+	// A type T satisfies an interface only if the interface methods are
 	// implemented using value receiver.
 	// A type *T satisfies an interface only if the interface methods are
 	// implemented using value or pointer receiver

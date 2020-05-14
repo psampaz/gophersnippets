@@ -14,7 +14,7 @@
             <h2 class="text-dark">GopherSnippets</h2>
             <p class="cite">Code snippets with tests and testable examples for the Go programming language</p>
             <h4>How to check if a type satisfies an interface at runtime</h4>
-            <a href="https://gophersnippets.com">Snippets Index</a> - <a target="_blank" href="https://play.golang.org/p/yTngHJnrmb3">Run code on Go playground</a> -
+            <a href="https://gophersnippets.com">Snippets Index</a> - <a target="_blank" href="https://play.golang.org/p/LgFrZxdFGbW">Run code on Go playground</a> -
             <a target="_blank"
                href="https://github.com/psampaz/gophersnippets/blob/master/snippets/how-to-check-if-a-type-satisfies-an-interface-at-runtime/main_test.go">Edit</a>
             <p>
@@ -50,13 +50,17 @@
 	<span class="c1">// According to the Go language specification:
 </span><span class="c1"></span>	<span class="c1">// A type may have a method set associated with it.
 </span><span class="c1"></span>	<span class="c1">// The method set of an interface type is its interface.
-</span><span class="c1"></span>	<span class="c1">// The method set of any other type T consists of all methods declared with receiver type T.
-</span><span class="c1"></span>	<span class="c1">// The method set of the corresponding pointer type *T is the set of all methods declared
+</span><span class="c1"></span>	<span class="c1">// The method set of any other type T consists of all methods
+</span><span class="c1"></span>	<span class="c1">// declared with receiver type T.
+</span><span class="c1"></span>	<span class="c1">// The method set of the corresponding pointer type *T is
+</span><span class="c1"></span>	<span class="c1">// the set of all methods declared
 </span><span class="c1"></span>	<span class="c1">// with receiver *T or T (that is, it also contains the method set of T).
 </span><span class="c1"></span>	<span class="c1">//
 </span><span class="c1"></span>	<span class="c1">// In other words:
-</span><span class="c1"></span>	<span class="c1">// A type T satisfies an interface only if the interface methods are implemented using value receiver
-</span><span class="c1"></span>	<span class="c1">// A type *T satisfies an interface only if the interface methods are implemented using value or pointer receiver
+</span><span class="c1"></span>	<span class="c1">// A type T satisfies an interface only if the interface methods are
+</span><span class="c1"></span>	<span class="c1">// implemented using value receiver.
+</span><span class="c1"></span>	<span class="c1">// A type *T satisfies an interface only if the interface methods are
+</span><span class="c1"></span>	<span class="c1">// implemented using value or pointer receiver
 </span><span class="c1"></span>
 	<span class="c1">// P implements the Checker interface using pointer receiver (*P)
 </span><span class="c1"></span>	<span class="c1">// so *P satisfies the checker interface
