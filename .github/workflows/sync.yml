@@ -1,0 +1,19 @@
+name: sync-issues-with-content
+on:
+  push:
+    branches:
+      - master
+jobs:
+  sync-content-issues:
+    name: sync-issues-with-content
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: generate html content
+        run: |
+          GITHUBTOKEN=${{ secrets.GITHUBTOKEN }} GITHUB_REPOSITORY=${{ github.repository }} ./bin/gophersnippets -github-issues -playground -playground-ua="gophersnippets.com/v1"
+          git config --global user.email "${{ secrets.GIT_EMAIL }}"
+          git config --global user.name "${{ secrets.GIT_NAME }}"
+          git add .
+          git diff --staged --quiet || git commit -m "generate html content"
+          git push

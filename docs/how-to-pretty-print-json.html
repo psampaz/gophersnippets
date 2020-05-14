@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/spectre.min.css">
+    <link rel=stylesheet href="css/highlight.css">
+    <title>How to pretty print JSON - GopherSnippets.com</title>
+</head>
+<body>
+<div class="container">
+    <div class="columns">
+        <div class="column col-xs-4"></div>
+        <div class="column col-xs-4">
+            <h2 class="text-dark">GopherSnippets</h2>
+            <p class="cite">Code snippets with tests and testable examples for the Go programming language</p>
+            <h4>How to pretty print JSON</h4>
+            <a href="https://gophersnippets.com">Snippets Index</a> - <a target="_blank" href="">Run code on Go playground</a> -
+            <a target="_blank"
+               href="https://github.com/psampaz/gophersnippets/blob/master/snippets/how-to-pretty-print-json/main_test.go">Edit</a>
+            <p>
+                <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;encoding/json&#34;</span>
+	<span class="s">&#34;fmt&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">type</span> <span class="nx">Student</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Name</span>    <span class="kt">string</span>
+	<span class="nx">Age</span>     <span class="kt">string</span>
+	<span class="nx">Lessons</span> <span class="p">[]</span><span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">Example</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">s</span> <span class="o">:=</span> <span class="nx">Student</span><span class="p">{</span>
+		<span class="nx">Name</span><span class="p">:</span> <span class="s">&#34;John&#34;</span><span class="p">,</span>
+		<span class="nx">Age</span><span class="p">:</span>  <span class="s">&#34;17&#34;</span><span class="p">,</span>
+		<span class="nx">Lessons</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span>
+			<span class="s">&#34;Mathematics&#34;</span><span class="p">,</span>
+			<span class="s">&#34;Computer science&#34;</span><span class="p">,</span>
+			<span class="s">&#34;Philoshopy&#34;</span><span class="p">,</span>
+		<span class="p">},</span>
+	<span class="p">}</span>
+
+	<span class="c1">// By using json.Marshal the output will be one line json string
+</span><span class="c1"></span>	<span class="c1">// which is difficult to read or debug
+</span><span class="c1"></span>	<span class="nx">jsonBytes</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">Marshal</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;\nUgly print:\n%s\n&#34;</span><span class="p">,</span> <span class="nx">jsonBytes</span><span class="p">)</span>
+
+	<span class="c1">// The easiest way to achieve a human readable and pretty print
+</span><span class="c1"></span>	<span class="c1">// is to use the json.MarshalIndent
+</span><span class="c1"></span>	<span class="nx">jsonBytes</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">json</span><span class="p">.</span><span class="nf">MarshalIndent</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="s">&#34;\t&#34;</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;\nPretty print:\n%s\n&#34;</span><span class="p">,</span> <span class="nx">jsonBytes</span><span class="p">)</span>
+	<span class="c1">// Output:
+</span><span class="c1"></span>	<span class="c1">//
+</span><span class="c1"></span>	<span class="c1">// Ugly print:
+</span><span class="c1"></span>	<span class="c1">// {&#34;Name&#34;:&#34;John&#34;,&#34;Age&#34;:&#34;17&#34;,&#34;Lessons&#34;:[&#34;Mathematics&#34;,&#34;Computer science&#34;,&#34;Philoshopy&#34;]}
+</span><span class="c1"></span>	<span class="c1">//
+</span><span class="c1"></span>	<span class="c1">// Pretty print:
+</span><span class="c1"></span>	<span class="c1">// {
+</span><span class="c1"></span>	<span class="c1">//	&#34;Name&#34;: &#34;John&#34;,
+</span><span class="c1"></span>	<span class="c1">//	&#34;Age&#34;: &#34;17&#34;,
+</span><span class="c1"></span>	<span class="c1">//	&#34;Lessons&#34;: [
+</span><span class="c1"></span>	<span class="c1">//		&#34;Mathematics&#34;,
+</span><span class="c1"></span>	<span class="c1">//		&#34;Computer science&#34;,
+</span><span class="c1"></span>	<span class="c1">//		&#34;Philoshopy&#34;
+</span><span class="c1"></span>	<span class="c1">//	]
+</span><span class="c1"></span>	<span class="c1">// }
+</span><span class="c1"></span><span class="p">}</span>
+</pre>
+            </p>
+            <p>
+                <span class="text-gray">by</span> <a href="https://github.com/psampaz" class="text-gray">psampaz</a> -
+                <a href="https://github.com/psampaz/gophersnippets" class="text-gray">source code</a>
+            </p>
+
+        </div>
+        <div class="column col-xs-4"></div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/spectre.min.css">
+    <link rel=stylesheet href="css/highlight.css">
+    <title>How to check if a slice contains a specific element - GopherSnippets.com</title>
+</head>
+<body>
+<div class="container">
+    <div class="columns">
+        <div class="column col-xs-4"></div>
+        <div class="column col-xs-4">
+            <h2 class="text-dark">GopherSnippets</h2>
+            <p class="cite">Code snippets with tests and testable examples for the Go programming language</p>
+            <h4>How to check if a slice contains a specific element</h4>
+            <a href="https://gophersnippets.com">Snippets Index</a> - <a target="_blank" href="">Run code on Go playground</a> -
+            <a target="_blank"
+               href="https://github.com/psampaz/gophersnippets/blob/master/snippets/how-to-check-if-a-slice-contains-a-specific-element/main_test.go">Edit</a>
+            <p>
+                <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">&#34;testing&#34;</span>
+
+<span class="kd">func</span> <span class="nf">SliceContains</span><span class="p">(</span><span class="nx">s</span> <span class="p">[]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">x</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="kc">false</span>
+	<span class="p">}</span>
+	<span class="k">for</span> <span class="nx">k</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">s</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="nx">s</span><span class="p">[</span><span class="nx">k</span><span class="p">]</span> <span class="o">==</span> <span class="nx">x</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="kc">true</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="kc">false</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">TestSliceContains</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">tests</span> <span class="o">:=</span> <span class="p">[]</span><span class="kd">struct</span> <span class="p">{</span>
+		<span class="nx">name</span> <span class="kt">string</span>
+		<span class="nx">s</span>    <span class="p">[]</span><span class="kt">int</span>
+		<span class="nx">x</span>    <span class="kt">int</span>
+		<span class="nx">want</span> <span class="kt">bool</span>
+	<span class="p">}{</span>
+		<span class="p">{</span>
+			<span class="nx">name</span><span class="p">:</span> <span class="s">&#34;nil&#34;</span><span class="p">,</span>
+			<span class="nx">s</span><span class="p">:</span>    <span class="kc">nil</span><span class="p">,</span>
+			<span class="nx">x</span><span class="p">:</span>    <span class="mi">1</span><span class="p">,</span>
+			<span class="nx">want</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+		<span class="p">},</span>
+		<span class="p">{</span>
+			<span class="nx">name</span><span class="p">:</span> <span class="s">&#34;empty&#34;</span><span class="p">,</span>
+			<span class="nx">s</span><span class="p">:</span>    <span class="p">[]</span><span class="kt">int</span><span class="p">{},</span>
+			<span class="nx">x</span><span class="p">:</span>    <span class="mi">1</span><span class="p">,</span>
+			<span class="nx">want</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+		<span class="p">},</span>
+		<span class="p">{</span>
+			<span class="nx">name</span><span class="p">:</span> <span class="s">&#34;value exists&#34;</span><span class="p">,</span>
+			<span class="nx">s</span><span class="p">:</span>    <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span>
+			<span class="nx">x</span><span class="p">:</span>    <span class="mi">1</span><span class="p">,</span>
+			<span class="nx">want</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+		<span class="p">},</span>
+		<span class="p">{</span>
+			<span class="nx">name</span><span class="p">:</span> <span class="s">&#34;value does not exist&#34;</span><span class="p">,</span>
+			<span class="nx">s</span><span class="p">:</span>    <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">},</span>
+			<span class="nx">x</span><span class="p">:</span>    <span class="mi">3</span><span class="p">,</span>
+			<span class="nx">want</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+		<span class="p">},</span>
+	<span class="p">}</span>
+	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">tt</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">tests</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Run</span><span class="p">(</span><span class="nx">tt</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="nx">got</span> <span class="o">:=</span> <span class="nf">SliceContains</span><span class="p">(</span><span class="nx">tt</span><span class="p">.</span><span class="nx">s</span><span class="p">,</span> <span class="nx">tt</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span> <span class="nx">got</span> <span class="o">!=</span> <span class="nx">tt</span><span class="p">.</span><span class="nx">want</span> <span class="p">{</span>
+				<span class="nx">t</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;SliceContains(%v, %v) = %v, want %v&#34;</span><span class="p">,</span> <span class="nx">tt</span><span class="p">.</span><span class="nx">s</span><span class="p">,</span> <span class="nx">tt</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">got</span><span class="p">,</span> <span class="nx">tt</span><span class="p">.</span><span class="nx">want</span><span class="p">)</span>
+			<span class="p">}</span>
+		<span class="p">})</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</pre>
+            </p>
+            <p>
+                <span class="text-gray">by</span> <a href="https://github.com/psampaz" class="text-gray">psampaz</a> -
+                <a href="https://github.com/psampaz/gophersnippets" class="text-gray">source code</a>
+            </p>
+
+        </div>
+        <div class="column col-xs-4"></div>
+    </div>
+</div>
+
+</body>
+</html>

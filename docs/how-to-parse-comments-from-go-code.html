@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/spectre.min.css">
+    <link rel=stylesheet href="css/highlight.css">
+    <title>How to parse comments from Go Code - GopherSnippets.com</title>
+</head>
+<body>
+<div class="container">
+    <div class="columns">
+        <div class="column col-xs-4"></div>
+        <div class="column col-xs-4">
+            <h2 class="text-dark">GopherSnippets</h2>
+            <p class="cite">Code snippets with tests and testable examples for the Go programming language</p>
+            <h4>How to parse comments from Go Code</h4>
+            <a href="https://gophersnippets.com">Snippets Index</a> - <a target="_blank" href="">Run code on Go playground</a> -
+            <a target="_blank"
+               href="https://github.com/psampaz/gophersnippets/blob/master/snippets/how-to-parse-comments-from-go-code/main_test.go">Edit</a>
+            <p>
+                <pre class="chroma"><span class="c1">// Comments from Go code can be parsed using
+</span><span class="c1">// go/parser package
+</span><span class="c1"></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;go/parser&#34;</span>
+	<span class="s">&#34;go/token&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">Example</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">src</span> <span class="o">:=</span> <span class="s">`
+</span><span class="s">// Calculator package provides methods 
+</span><span class="s">// for basic int calculation 
+</span><span class="s">package calculator
+</span><span class="s">
+</span><span class="s">// Import of fmt package 
+</span><span class="s">import &#34;fmt&#34;
+</span><span class="s">
+</span><span class="s">// Add adds two integers
+</span><span class="s">func Add(a, b int) int {
+</span><span class="s">	// calculate the result
+</span><span class="s">	result := a + b
+</span><span class="s">	// return the result
+</span><span class="s">	return result
+</span><span class="s">}
+</span><span class="s">`</span>
+	<span class="nx">fs</span> <span class="o">:=</span> <span class="nx">token</span><span class="p">.</span><span class="nf">NewFileSet</span><span class="p">()</span>
+	<span class="nx">f</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">parser</span><span class="p">.</span><span class="nf">ParseFile</span><span class="p">(</span><span class="nx">fs</span><span class="p">,</span> <span class="s">&#34;&#34;</span><span class="p">,</span> <span class="nx">src</span><span class="p">,</span> <span class="nx">parser</span><span class="p">.</span><span class="nx">ParseComments</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+		<span class="k">return</span>
+	<span class="p">}</span>
+
+	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">c</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">f</span><span class="p">.</span><span class="nx">Comments</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nf">Text</span><span class="p">())</span>
+	<span class="p">}</span>
+	<span class="c1">// Output:
+</span><span class="c1"></span>	<span class="c1">// Calculator package provides methods
+</span><span class="c1"></span>	<span class="c1">// for basic int calculation
+</span><span class="c1"></span>	<span class="c1">//
+</span><span class="c1"></span>	<span class="c1">// Import of fmt package
+</span><span class="c1"></span>	<span class="c1">//
+</span><span class="c1"></span>	<span class="c1">// Add adds two integers
+</span><span class="c1"></span>	<span class="c1">//
+</span><span class="c1"></span>	<span class="c1">// calculate the result
+</span><span class="c1"></span>	<span class="c1">//
+</span><span class="c1"></span>	<span class="c1">// return the result
+</span><span class="c1"></span><span class="p">}</span>
+</pre>
+            </p>
+            <p>
+                <span class="text-gray">by</span> <a href="https://github.com/psampaz" class="text-gray">psampaz</a> -
+                <a href="https://github.com/psampaz/gophersnippets" class="text-gray">source code</a>
+            </p>
+
+        </div>
+        <div class="column col-xs-4"></div>
+    </div>
+</div>
+
+</body>
+</html>

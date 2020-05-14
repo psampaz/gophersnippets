@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/spectre.min.css">
+    <link rel=stylesheet href="css/highlight.css">
+    <title>How to test a function that panics - GopherSnippets.com</title>
+</head>
+<body>
+<div class="container">
+    <div class="columns">
+        <div class="column col-xs-4"></div>
+        <div class="column col-xs-4">
+            <h2 class="text-dark">GopherSnippets</h2>
+            <p class="cite">Code snippets with tests and testable examples for the Go programming language</p>
+            <h4>How to test a function that panics</h4>
+            <a href="https://gophersnippets.com">Snippets Index</a> - <a target="_blank" href="">Run code on Go playground</a> -
+            <a target="_blank"
+               href="https://github.com/psampaz/gophersnippets/blob/master/snippets/how-to-test-a-function-that-panics/main_test.go">Edit</a>
+            <p>
+                <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="s">&#34;testing&#34;</span>
+
+<span class="kd">func</span> <span class="nf">f</span><span class="p">(</span><span class="nx">shouldPanic</span> <span class="kt">bool</span><span class="p">)</span> <span class="kt">string</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="nx">shouldPanic</span> <span class="p">{</span>
+		<span class="nb">panic</span><span class="p">(</span><span class="s">&#34;function panicked&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="k">return</span> <span class="s">&#34;function didn&#39;t panic&#34;</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">Test_f</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">t</span><span class="p">.</span><span class="nf">Run</span><span class="p">(</span><span class="s">&#34;panics&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+		<span class="c1">// If function that panics, recover() will
+</span><span class="c1"></span>		<span class="c1">// return a non nil value.
+</span><span class="c1"></span>		<span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="nx">r</span> <span class="o">:=</span> <span class="nb">recover</span><span class="p">();</span> <span class="nx">r</span> <span class="o">==</span> <span class="kc">nil</span> <span class="p">{</span>
+				<span class="nx">t</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;function should panic&#34;</span><span class="p">)</span>
+			<span class="p">}</span>
+		<span class="p">}()</span>
+
+		<span class="nf">f</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+	<span class="p">})</span>
+
+	<span class="nx">t</span><span class="p">.</span><span class="nf">Run</span><span class="p">(</span><span class="s">&#34;does not panic&#34;</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">shouldPanic</span> <span class="o">:=</span> <span class="kc">false</span>
+		<span class="nx">want</span> <span class="o">:=</span> <span class="s">&#34;function didn&#39;t panic&#34;</span>
+		<span class="k">if</span> <span class="nx">got</span> <span class="o">:=</span> <span class="nf">f</span><span class="p">(</span><span class="nx">shouldPanic</span><span class="p">);</span> <span class="nx">got</span> <span class="o">!=</span> <span class="nx">want</span> <span class="p">{</span>
+			<span class="nx">t</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;f(%v) = %v, want %v&#34;</span><span class="p">,</span> <span class="nx">shouldPanic</span><span class="p">,</span> <span class="nx">got</span><span class="p">,</span> <span class="nx">want</span><span class="p">)</span>
+		<span class="p">}</span>
+	<span class="p">})</span>
+
+<span class="p">}</span>
+</pre>
+            </p>
+            <p>
+                <span class="text-gray">by</span> <a href="https://github.com/psampaz" class="text-gray">psampaz</a> -
+                <a href="https://github.com/psampaz/gophersnippets" class="text-gray">source code</a>
+            </p>
+
+        </div>
+        <div class="column col-xs-4"></div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/spectre.min.css">
+    <link rel=stylesheet href="css/highlight.css">
+    <title>How to convert int to string - GopherSnippets.com</title>
+</head>
+<body>
+<div class="container">
+    <div class="columns">
+        <div class="column col-xs-4"></div>
+        <div class="column col-xs-4">
+            <h2 class="text-dark">GopherSnippets</h2>
+            <p class="cite">Code snippets with tests and testable examples for the Go programming language</p>
+            <h4>How to convert int to string</h4>
+            <a href="https://gophersnippets.com">Snippets Index</a> - <a target="_blank" href="">Run code on Go playground</a> -
+            <a target="_blank"
+               href="https://github.com/psampaz/gophersnippets/blob/master/snippets/how-to-convert-int-to-string/main_test.go">Edit</a>
+            <p>
+                <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;strconv&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">Example_itoa</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">// Converting an int to a string can be done
+</span><span class="c1"></span>	<span class="c1">// using the `strconv.Itoa` (integer to ascii) function
+</span><span class="c1"></span>	<span class="nx">a</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">Itoa</span><span class="p">(</span><span class="mi">1234</span><span class="p">)</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%q\n&#34;</span><span class="p">,</span> <span class="nx">a</span><span class="p">)</span>
+	<span class="c1">// Output:
+</span><span class="c1"></span>	<span class="c1">// &#34;1234&#34;
+</span><span class="c1"></span><span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">Example_formatInt</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">// `strconv.Itoa` is calls internally
+</span><span class="c1"></span>	<span class="c1">// `FormatInt(int64(i), 10)` so another way
+</span><span class="c1"></span>	<span class="c1">//  to  convert an int to  a string is the following:
+</span><span class="c1"></span>	<span class="nx">b</span> <span class="o">:=</span> <span class="nx">strconv</span><span class="p">.</span><span class="nf">FormatInt</span><span class="p">(</span><span class="nb">int64</span><span class="p">(</span><span class="mi">1234</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%q\n&#34;</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span>
+	<span class="c1">// Output:
+</span><span class="c1"></span>	<span class="c1">// &#34;1234&#34;
+</span><span class="c1"></span><span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">Example_sprintf</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">// A third way would be to use the `fmt.Sprintf` method:
+</span><span class="c1"></span>	<span class="nx">c</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;%d&#34;</span><span class="p">,</span> <span class="mi">1234</span><span class="p">)</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%q\n&#34;</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span>
+	<span class="c1">// Output:
+</span><span class="c1"></span>	<span class="c1">// &#34;1234&#34;
+</span><span class="c1"></span><span class="p">}</span>
+</pre>
+            </p>
+            <p>
+                <span class="text-gray">by</span> <a href="https://github.com/psampaz" class="text-gray">psampaz</a> -
+                <a href="https://github.com/psampaz/gophersnippets" class="text-gray">source code</a>
+            </p>
+
+        </div>
+        <div class="column col-xs-4"></div>
+    </div>
+</div>
+
+</body>
+</html>
