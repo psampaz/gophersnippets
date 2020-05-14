@@ -16,4 +16,4 @@ jobs:
           git config --global user.name "${{ secrets.GIT_NAME }}"
           git add .
           git diff --staged --quiet || git commit -m "generate html content"
-          git push
+          git push -f
