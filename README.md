@@ -12,6 +12,8 @@ Each snippet:
 ## HTTP
  - [How to print a raw HTTP response](https://gophersnippets.com/how-to-print-a-raw-http-response)
  - [How to read an HTTP response status code](https://gophersnippets.com/how-to-read-an-http-response-status-code)
+## Interfaces
+ - [How to check if a type satisfies an interface at runtime](https://gophersnippets.com/how-to-check-if-a-type-satisfies-an-interface-at-runtime)
 ## Maps
  - [How to copy a map](https://gophersnippets.com/how-to-copy-a-map)
  - [How to create a set using a map](https://gophersnippets.com/how-to-create-a-set-using-a-map)

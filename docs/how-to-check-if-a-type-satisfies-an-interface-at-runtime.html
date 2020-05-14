@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/spectre.min.css">
+    <link rel=stylesheet href="css/highlight.css">
+    <title>How to check if a type satisfies an interface at runtime - GopherSnippets.com</title>
+</head>
+<body>
+<div class="container">
+    <div class="columns">
+        <div class="column col-xs-4"></div>
+        <div class="column col-xs-4">
+            <h2 class="text-dark">GopherSnippets</h2>
+            <p class="cite">Code snippets with tests and testable examples for the Go programming language</p>
+            <h4>How to check if a type satisfies an interface at runtime</h4>
+            <a href="https://gophersnippets.com">Snippets Index</a> - <a target="_blank" href="https://play.golang.org/p/yTngHJnrmb3">Run code on Go playground</a> -
+            <a target="_blank"
+               href="https://github.com/psampaz/gophersnippets/blob/master/snippets/how-to-check-if-a-type-satisfies-an-interface-at-runtime/main_test.go">Edit</a>
+            <p>
+                <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">type</span> <span class="nx">Checker</span> <span class="kd">interface</span> <span class="p">{</span>
+	<span class="nf">Check</span><span class="p">()</span> <span class="kt">bool</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">P</span> <span class="kd">struct</span><span class="p">{}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">p</span> <span class="o">*</span><span class="nx">P</span><span class="p">)</span> <span class="nf">Check</span><span class="p">()</span> <span class="kt">bool</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="kc">true</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">V</span> <span class="kd">struct</span><span class="p">{}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">v</span> <span class="nx">V</span><span class="p">)</span> <span class="nf">Check</span><span class="p">()</span> <span class="kt">bool</span> <span class="p">{</span>
+	<span class="k">return</span> <span class="kc">true</span>
+<span class="p">}</span>
+
+<span class="kd">type</span> <span class="nx">N</span> <span class="kd">struct</span><span class="p">{}</span>
+
+<span class="c1">// References:
+</span><span class="c1">// https://golang.org/ref/spec#Method_sets
+</span><span class="c1">// https://golang.org/ref/spec#Type_assertions
+</span><span class="c1">// https://www.ardanlabs.com/blog/2017/07/interface-semantics.html
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">Example</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">// According to the Go language specification:
+</span><span class="c1"></span>	<span class="c1">// A type may have a method set associated with it.
+</span><span class="c1"></span>	<span class="c1">// The method set of an interface type is its interface.
+</span><span class="c1"></span>	<span class="c1">// The method set of any other type T consists of all methods declared with receiver type T.
+</span><span class="c1"></span>	<span class="c1">// The method set of the corresponding pointer type *T is the set of all methods declared
+</span><span class="c1"></span>	<span class="c1">// with receiver *T or T (that is, it also contains the method set of T).
+</span><span class="c1"></span>	<span class="c1">//
+</span><span class="c1"></span>	<span class="c1">// In other words:
+</span><span class="c1"></span>	<span class="c1">// A type T satisfies an interface only if the interface methods are implemented using value receiver
+</span><span class="c1"></span>	<span class="c1">// A type *T satisfies an interface only if the interface methods are implemented using value or pointer receiver
+</span><span class="c1"></span>
+	<span class="c1">// P implements the Checker interface using pointer receiver (*P)
+</span><span class="c1"></span>	<span class="c1">// so *P satisfies the checker interface
+</span><span class="c1"></span>	<span class="c1">// we assign the value &amp;P to an empty interface
+</span><span class="c1"></span>	<span class="kd">var</span> <span class="nx">pp</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">P</span><span class="p">{}</span>
+	<span class="c1">// we use type assertion to check if the value of the interface is type Checker
+</span><span class="c1"></span>	<span class="k">if</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">pp</span><span class="p">.(</span><span class="nx">Checker</span><span class="p">);</span> <span class="nx">ok</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;*P implements the checker interface&#34;</span><span class="p">)</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;*P does not implement the checker interface&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="c1">// P implements the Checker interface using pointer receiver (*P)
+</span><span class="c1"></span>	<span class="c1">// so P does not satisfy the checker interface
+</span><span class="c1"></span>	<span class="kd">var</span> <span class="nx">pv</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">=</span> <span class="nx">P</span><span class="p">{}</span>
+
+	<span class="k">if</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">pv</span><span class="p">.(</span><span class="nx">Checker</span><span class="p">);</span> <span class="nx">ok</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;P implements the checker interface&#34;</span><span class="p">)</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;P does not implement the checker interface&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="c1">// V implements the Checker interface using value receiver
+</span><span class="c1"></span>	<span class="c1">// so *V satisfies the interface
+</span><span class="c1"></span>	<span class="kd">var</span> <span class="nx">vp</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">V</span><span class="p">{}</span>
+
+	<span class="k">if</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">vp</span><span class="p">.(</span><span class="nx">Checker</span><span class="p">);</span> <span class="nx">ok</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;*V implements the checker interface&#34;</span><span class="p">)</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;*V does not implement the checker interface&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="c1">// V implements the Checker interface using value receiver
+</span><span class="c1"></span>	<span class="c1">// so V satisfies the interface
+</span><span class="c1"></span>	<span class="kd">var</span> <span class="nx">vv</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">=</span> <span class="nx">V</span><span class="p">{}</span>
+
+	<span class="k">if</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">vv</span><span class="p">.(</span><span class="nx">Checker</span><span class="p">);</span> <span class="nx">ok</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;V implements the checker interface&#34;</span><span class="p">)</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;V does not implement the checker interface&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="c1">// N does not implement the Checker interface at all
+</span><span class="c1"></span>	<span class="c1">// so *N does not satisfy the interface
+</span><span class="c1"></span>	<span class="kd">var</span> <span class="nx">np</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">=</span> <span class="o">&amp;</span><span class="nx">N</span><span class="p">{}</span>
+
+	<span class="k">if</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">np</span><span class="p">.(</span><span class="nx">Checker</span><span class="p">);</span> <span class="nx">ok</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;*N implements the checker interface&#34;</span><span class="p">)</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;*N does not implement the checker interface&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="c1">// N does not implement the Checker interface at all
+</span><span class="c1"></span>	<span class="c1">// so N does not satisfy the interface
+</span><span class="c1"></span>	<span class="kd">var</span> <span class="nx">nv</span> <span class="kd">interface</span><span class="p">{}</span> <span class="p">=</span> <span class="nx">N</span><span class="p">{}</span>
+
+	<span class="k">if</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">ok</span> <span class="o">:=</span> <span class="nx">nv</span><span class="p">.(</span><span class="nx">Checker</span><span class="p">);</span> <span class="nx">ok</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;N implements the checker interface&#34;</span><span class="p">)</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;N does not implement the checker interface&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="c1">// Output:
+</span><span class="c1"></span>	<span class="c1">// *P implements the checker interface
+</span><span class="c1"></span>	<span class="c1">// P does not implement the checker interface
+</span><span class="c1"></span>	<span class="c1">// *V implements the checker interface
+</span><span class="c1"></span>	<span class="c1">// V implements the checker interface
+</span><span class="c1"></span>	<span class="c1">// *N does not implement the checker interface
+</span><span class="c1"></span>	<span class="c1">// N does not implement the checker interface
+</span><span class="c1"></span><span class="p">}</span>
+</pre>
+            </p>
+            <p>
+                <span class="text-gray">by</span> <a href="https://github.com/psampaz" class="text-gray">psampaz</a> -
+                <a href="https://github.com/psampaz/gophersnippets" class="text-gray">source code</a>
+            </p>
+
+        </div>
+        <div class="column col-xs-4"></div>
+    </div>
+</div>
+
+</body>
+</html>
