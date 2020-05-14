@@ -9,6 +9,9 @@ Each snippet:
 
 ## Conversions
  - [How to convert int to string](https://gophersnippets.com/how-to-convert-int-to-string)
+## HTTP
+ - [How to print a raw HTTP response](https://gophersnippets.com/how-to-print-a-raw-http-response)
+ - [How to read an HTTP response status code](https://gophersnippets.com/how-to-read-an-http-response-status-code)
 ## Maps
  - [How to copy a map](https://gophersnippets.com/how-to-copy-a-map)
  - [How to create a set using a map](https://gophersnippets.com/how-to-create-a-set-using-a-map)
