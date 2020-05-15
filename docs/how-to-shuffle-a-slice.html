@@ -14,7 +14,7 @@
             <h2 class="text-dark"><a href="https://gophersnippets.com" style="text-decoration: none" class="text-dark">GopherSnippets</a></h2>
             <p class="cite">Code snippets with tests and testable examples for the Go programming language</p>
             <h4>How to shuffle a slice</h4>
-            <a href="https://gophersnippets.com">Snippets Index</a> - <a target="_blank" href="https://play.golang.org/p/wJsM8ZyWwV_v">Run code on Go playground</a> -
+            <a href="https://gophersnippets.com">Snippets Index</a> - <a target="_blank" href="https://play.golang.org/p/-pN_TSFJzP_R">Run code on Go playground</a> -
             <a target="_blank"
                href="https://github.com/psampaz/gophersnippets/blob/master/snippets/how-to-shuffle-a-slice/main_test.go">Edit</a>
             <p>
@@ -58,6 +58,7 @@
 		<span class="k">return</span> <span class="nx">shuffled</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">&lt;</span> <span class="nx">shuffled</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span>
 	<span class="p">})</span>
 	<span class="k">if</span> <span class="p">!</span><span class="nx">reflect</span><span class="p">.</span><span class="nf">DeepEqual</span><span class="p">(</span><span class="nx">shuffled</span><span class="p">,</span> <span class="nx">original</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">t</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;Sorted shuffled slice should be the same with the original&#34;</span><span class="p">)</span>
 	<span class="p">}</span>
 <span class="p">}</span>
 </pre>
