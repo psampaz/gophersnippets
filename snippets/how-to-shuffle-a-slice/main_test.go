@@ -39,5 +39,6 @@ func TestShuffleSlice(t *testing.T) {
 		return shuffled[i] < shuffled[j]
 	})
 	if !reflect.DeepEqual(shuffled, original) {
+		t.Errorf("Sorted shuffled slice should be the same with the original")
 	}
 }
