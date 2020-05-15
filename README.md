@@ -22,6 +22,7 @@ Each snippet:
  - [What is the maximum value of numeric types](https://gophersnippets.com/what-is-the-maximum-value-of-numeric-types)
 ## Other
  - [How to format Go code programmatically](https://gophersnippets.com/how-to-format-go-code-programmatically)
+ - [How to print the binary representation of an integer](https://gophersnippets.com/how-to-print-the-binary-representation-of-an-integer)
 ## Parser
  - [How to parse comments from Go Code](https://gophersnippets.com/how-to-parse-comments-from-go-code)
 ## Runtime

@@ -7,14 +7,14 @@ import (
 
 func Example() {
 	// The %b verb print the binary representation of an integer
-	for x:=0; x<16;x++ {
+	for x := 0; x < 16; x++ {
 		fmt.Printf("%b\n", x)
 	}
 	// If you want the output to have the same length, 8 bits for example
 	// use the %08b notation which means:
 	// print binary, use 8 digits for the output, pad with leading zeros
 	fmt.Println("fixed length of 8 digits:")
-	for x:=0; x<16;x++ {
+	for x := 0; x < 16; x++ {
 		fmt.Printf("%08b\n", x)
 	}
 	// Output:

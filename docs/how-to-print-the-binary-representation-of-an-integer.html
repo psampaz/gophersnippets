@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/spectre.min.css">
+    <link rel=stylesheet href="css/highlight.css">
+    <title>How to print the binary representation of an integer - GopherSnippets.com</title>
+</head>
+<body>
+<div class="container">
+    <div class="columns">
+        <div class="column col-xs-4"></div>
+        <div class="column col-xs-4">
+            <h2 class="text-dark"><a href="https://gophersnippets.com" style="text-decoration: none" class="text-dark">GopherSnippets</a></h2>
+            <p class="cite">Code snippets with tests and testable examples for the Go programming language</p>
+            <h4>How to print the binary representation of an integer</h4>
+            <a href="https://gophersnippets.com">Snippets Index</a> - <a target="_blank" href="https://play.golang.org/p/ERtcvW-oUtx">Run code on Go playground</a> -
+            <a target="_blank"
+               href="https://github.com/psampaz/gophersnippets/blob/master/snippets/how-to-print-the-binary-representation-of-an-integer/main_test.go">Edit</a>
+            <p>
+                <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">Example</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">// The %b verb print the binary representation of an integer
+</span><span class="c1"></span>	<span class="k">for</span> <span class="nx">x</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">x</span> <span class="p">&lt;</span> <span class="mi">16</span><span class="p">;</span> <span class="nx">x</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%b\n&#34;</span><span class="p">,</span> <span class="nx">x</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="c1">// If you want the output to have the same length, 8 bits for example
+</span><span class="c1"></span>	<span class="c1">// use the %08b notation which means:
+</span><span class="c1"></span>	<span class="c1">// print binary, use 8 digits for the output, pad with leading zeros
+</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;fixed length of 8 digits:&#34;</span><span class="p">)</span>
+	<span class="k">for</span> <span class="nx">x</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">x</span> <span class="p">&lt;</span> <span class="mi">16</span><span class="p">;</span> <span class="nx">x</span><span class="o">++</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%08b\n&#34;</span><span class="p">,</span> <span class="nx">x</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="c1">// Output:
+</span><span class="c1"></span>	<span class="c1">// 0
+</span><span class="c1"></span>	<span class="c1">// 1
+</span><span class="c1"></span>	<span class="c1">// 10
+</span><span class="c1"></span>	<span class="c1">// 11
+</span><span class="c1"></span>	<span class="c1">// 100
+</span><span class="c1"></span>	<span class="c1">// 101
+</span><span class="c1"></span>	<span class="c1">// 110
+</span><span class="c1"></span>	<span class="c1">// 111
+</span><span class="c1"></span>	<span class="c1">// 1000
+</span><span class="c1"></span>	<span class="c1">// 1001
+</span><span class="c1"></span>	<span class="c1">// 1010
+</span><span class="c1"></span>	<span class="c1">// 1011
+</span><span class="c1"></span>	<span class="c1">// 1100
+</span><span class="c1"></span>	<span class="c1">// 1101
+</span><span class="c1"></span>	<span class="c1">// 1110
+</span><span class="c1"></span>	<span class="c1">// 1111
+</span><span class="c1"></span>	<span class="c1">// fixed length of 8 digits:
+</span><span class="c1"></span>	<span class="c1">// 00000000
+</span><span class="c1"></span>	<span class="c1">// 00000001
+</span><span class="c1"></span>	<span class="c1">// 00000010
+</span><span class="c1"></span>	<span class="c1">// 00000011
+</span><span class="c1"></span>	<span class="c1">// 00000100
+</span><span class="c1"></span>	<span class="c1">// 00000101
+</span><span class="c1"></span>	<span class="c1">// 00000110
+</span><span class="c1"></span>	<span class="c1">// 00000111
+</span><span class="c1"></span>	<span class="c1">// 00001000
+</span><span class="c1"></span>	<span class="c1">// 00001001
+</span><span class="c1"></span>	<span class="c1">// 00001010
+</span><span class="c1"></span>	<span class="c1">// 00001011
+</span><span class="c1"></span>	<span class="c1">// 00001100
+</span><span class="c1"></span>	<span class="c1">// 00001101
+</span><span class="c1"></span>	<span class="c1">// 00001110
+</span><span class="c1"></span>	<span class="c1">// 00001111
+</span><span class="c1"></span><span class="p">}</span>
+</pre>
+            </p>
+            <p>
+                <span class="text-gray">by</span> <a href="https://github.com/psampaz" class="text-gray">psampaz</a> -
+                <a href="https://github.com/psampaz/gophersnippets" class="text-gray">source code</a> - <span class="text-gray">comment below or</span> <a target="_blank"
+                                                                                                                               href="https://github.com/psampaz/gophersnippets/issues/40" class="text-gray">here</a>
+            </p>
+            <script src="https://utteranc.es/client.js"
+                    repo="psampaz/gophersnippets"
+                    issue-number="40"
+                    theme="github-light"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+        <div class="column col-xs-4"></div>
+    </div>
+</div>
+
+</body>
+</html>
