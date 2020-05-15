@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/spectre.min.css">
+    <link rel=stylesheet href="css/highlight.css">
+    <title>How to print the same variable multiple times using printf - GopherSnippets.com</title>
+</head>
+<body>
+<div class="container">
+    <div class="columns">
+        <div class="column col-xs-4"></div>
+        <div class="column col-xs-4">
+            <h2 class="text-dark"><a href="https://gophersnippets.com" style="text-decoration: none" class="text-dark">GopherSnippets</a></h2>
+            <p class="cite">Code snippets with tests and testable examples for the Go programming language</p>
+            <h4>How to print the same variable multiple times using printf</h4>
+            <a href="https://gophersnippets.com">Snippets Index</a> - <a target="_blank" href="https://play.golang.org/p/Mz67TioNjAq">Run code on Go playground</a> -
+            <a target="_blank"
+               href="https://github.com/psampaz/gophersnippets/blob/master/snippets/how-to-print-the-same-variable-multiple-times-using-printf/main_test.go">Edit</a>
+            <p>
+                <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">Example</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">// You can print multiple times the same variable using argument indexes
+</span><span class="c1"></span>	<span class="c1">// The notation [n] before the verb, means use the nth argument after the format.
+</span><span class="c1"></span>	<span class="c1">// The above applies to Printf, Sprintf, and Fprintf
+</span><span class="c1"></span>	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%[1]d %[1]d\n&#34;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;%[2]d %[2]d %[1]d %[1]d\n&#34;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+	<span class="c1">// Output:
+</span><span class="c1"></span>	<span class="c1">// 5 5
+</span><span class="c1"></span>	<span class="c1">// 6 6 5 5
+</span><span class="c1"></span><span class="p">}</span>
+</pre>
+            </p>
+            <p>
+                <span class="text-gray">by</span> <a href="https://github.com/psampaz" class="text-gray">psampaz</a> -
+                <a href="https://github.com/psampaz/gophersnippets" class="text-gray">source code</a> - <span class="text-gray">comment below or</span> <a target="_blank"
+                                                                                                                               href="https://github.com/psampaz/gophersnippets/issues/41" class="text-gray">here</a>
+            </p>
+            <script src="https://utteranc.es/client.js"
+                    repo="psampaz/gophersnippets"
+                    issue-number="41"
+                    theme="github-light"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+        <div class="column col-xs-4"></div>
+    </div>
+</div>
+
+</body>
+</html>

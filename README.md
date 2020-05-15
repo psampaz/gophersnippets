@@ -23,6 +23,7 @@ Each snippet:
 ## Other
  - [How to format Go code programmatically](https://gophersnippets.com/how-to-format-go-code-programmatically)
  - [How to print the binary representation of an integer](https://gophersnippets.com/how-to-print-the-binary-representation-of-an-integer)
+ - [How to print the same variable multiple times using printf](https://gophersnippets.com/how-to-print-the-same-variable-multiple-times-using-printf)
 ## Parser
  - [How to parse comments from Go Code](https://gophersnippets.com/how-to-parse-comments-from-go-code)
 ## Runtime
