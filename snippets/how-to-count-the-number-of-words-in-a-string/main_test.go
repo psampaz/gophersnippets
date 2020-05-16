@@ -1,4 +1,4 @@
-// Strings: How to count words in a string
+// Strings: How to count the number words in a string
 package main
 
 import (
