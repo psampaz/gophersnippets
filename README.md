@@ -44,6 +44,7 @@ Each snippet:
  - [How to check if a string starts with substring](https://gophersnippets.com/how-to-check-if-a-string-starts-with-substring)
  - [How to check if string is valid JSON](https://gophersnippets.com/how-to-check-if-string-is-valid-json)
  - [How to concatenate strings](https://gophersnippets.com/how-to-concatenate-strings)
+ - [How to count the number of words in a string](https://gophersnippets.com/how-to-count-the-number-of-words-in-a-string)
  - [How to get the md5 checksum of a string](https://gophersnippets.com/how-to-get-the-md5-checksum-of-a-string)
  - [How to get the sha1 checksum of a string](https://gophersnippets.com/how-to-get-the-sha1-checksum-of-a-string)
  - [How to get the sha256 checksum of a string](https://gophersnippets.com/how-to-get-the-sha256-checksum-of-a-string)
