@@ -37,6 +37,7 @@ Each snippet:
  - [How to reverse a slice](https://gophersnippets.com/how-to-reverse-a-slice)
  - [How to shuffle a slice](https://gophersnippets.com/how-to-shuffle-a-slice)
 ## Strings
+ - [How to calculate the hamming distance between two strings](https://gophersnippets.com/how-to-calculate-the-hamming-distance-between-two-strings)
  - [How to check if a string ends with a substring](https://gophersnippets.com/how-to-check-if-a-string-ends-with-a-substring)
  - [How to check if a string is lowercase](https://gophersnippets.com/how-to-check-if-a-string-is-lowercase)
  - [How to check if a string is uppercase](https://gophersnippets.com/how-to-check-if-a-string-is-uppercase)
