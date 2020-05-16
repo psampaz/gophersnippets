@@ -21,14 +21,14 @@ func CountWordsFunc(s string, f func(rune) bool) int {
 	return len(strings.FieldsFunc(s, f))
 }
 
-func Example_CountWords() {
+func ExampleCountWords() {
 	wc := CountWords("  How  to count words? \n")
 	fmt.Println(wc)
 	// Output:
 	// 4
 }
 
-func Example_CountWordsFunc() {
+func ExampleCountWordsFunc() {
 	f := func(c rune) bool {
 		return c == ','
 	}
