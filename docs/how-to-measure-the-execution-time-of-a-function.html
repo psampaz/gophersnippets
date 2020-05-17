@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/spectre.min.css">
+    <link rel=stylesheet href="css/highlight.css">
+    <title>How to measure the execution time of a function - GopherSnippets.com</title>
+</head>
+<body>
+<div class="container">
+    <div class="columns">
+        <div class="column col-xs-4"></div>
+        <div class="column col-xs-4">
+            <h2 class="text-dark"><a href="https://gophersnippets.com" style="text-decoration: none" class="text-dark">GopherSnippets</a></h2>
+            <p class="cite">Code snippets with tests and testable examples for the Go programming language</p>
+            <h4>How to measure the execution time of a function</h4>
+            <a href="https://gophersnippets.com">Snippets Index</a> - <a target="_blank" href="https://play.golang.org/p/hSlDH_przPq">Run code on Go playground</a> -
+            <a target="_blank"
+               href="https://github.com/psampaz/gophersnippets/blob/master/snippets/how-to-measure-the-execution-time-of-a-function/main_test.go">Edit</a>
+            <p>
+                <pre class="chroma"><span class="c1">// This example demonstrates simple execution time calculation
+</span><span class="c1">// If you need a detailed report on a function&#39;s performance
+</span><span class="c1">// you should use Go benchmark functions
+</span><span class="c1">// https://golang.org/pkg/testing/#hdr-Benchmarks
+</span><span class="c1">// https://dave.cheney.net/2013/06/30/how-to-write-benchmarks-in-go
+</span><span class="c1"></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;time&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">// first we calculate the exact time the function
+</span><span class="c1"></span>	<span class="c1">// started the execution
+</span><span class="c1"></span>	<span class="nx">start</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()</span>
+	<span class="c1">// Then we calculate the execution time duration
+</span><span class="c1"></span>	<span class="c1">// inside a deferred function, since it will be execute after f() returns
+</span><span class="c1"></span>	<span class="k">defer</span> <span class="kd">func</span><span class="p">(</span><span class="nx">start</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">dur</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Since</span><span class="p">(</span><span class="nx">start</span><span class="p">)</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;f() took %0.0f to execute&#34;</span><span class="p">,</span> <span class="nx">dur</span><span class="p">.</span><span class="nf">Seconds</span><span class="p">())</span>
+	<span class="p">}(</span><span class="nx">start</span><span class="p">)</span>
+	<span class="c1">// pause the execution for 2 seconds
+</span><span class="c1"></span>	<span class="nx">time</span><span class="p">.</span><span class="nf">Sleep</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">Example</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nf">f</span><span class="p">()</span>
+	<span class="c1">// Output:
+</span><span class="c1"></span>	<span class="c1">// f() took 2 to execute
+</span><span class="c1"></span><span class="p">}</span>
+</pre>
+            </p>
+            <p>
+                <span class="text-gray">by</span> <a href="https://github.com/psampaz" class="text-gray">psampaz</a> -
+                <a href="https://github.com/psampaz/gophersnippets" class="text-gray">source code</a> - <span class="text-gray">comment below or</span> <a target="_blank"
+                                                                                                                               href="https://github.com/psampaz/gophersnippets/issues/48" class="text-gray">here</a>
+            </p>
+            <script src="https://utteranc.es/client.js"
+                    repo="psampaz/gophersnippets"
+                    issue-number="48"
+                    theme="github-light"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+        <div class="column col-xs-4"></div>
+    </div>
+</div>
+
+</body>
+</html>
