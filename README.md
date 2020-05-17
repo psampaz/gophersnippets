@@ -49,6 +49,7 @@ Each snippet:
  - [How to get the sha1 checksum of a string](https://gophersnippets.com/how-to-get-the-sha1-checksum-of-a-string)
  - [How to get the sha256 checksum of a string](https://gophersnippets.com/how-to-get-the-sha256-checksum-of-a-string)
  - [How to pretty print JSON](https://gophersnippets.com/how-to-pretty-print-json)
+ - [How to reverse a string](https://gophersnippets.com/how-to-reverse-a-string)
 ## Testing
  - [How to test a function that panics](https://gophersnippets.com/how-to-test-a-function-that-panics)
 ## Time

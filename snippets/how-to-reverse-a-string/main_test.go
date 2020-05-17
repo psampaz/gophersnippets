@@ -15,22 +15,22 @@ func ReverseString(s string) string {
 func TestReverseString(t *testing.T) {
 	tests := []struct {
 		name string
-		s string
+		s    string
 		want string
 	}{
 		{
 			name: "empty",
-			s: "",
+			s:    "",
 			want: "",
 		},
 		{
 			name: "non empty ascii",
-			s: "abcd",
+			s:    "abcd",
 			want: "dcba",
 		},
 		{
 			name: "non empty utf8",
-			s: "καλημέρα",
+			s:    "καλημέρα",
 			want: "αρέμηλακ",
 		},
 	}
