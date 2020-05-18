@@ -44,7 +44,7 @@ Please read the following before submitting a PR:
     // package main
     ```
   - code should be included in **one file only**, named **main_test.go**. This is necessary in order to test and run snippets locally
-  - folder matches the slug version of the title:
+  - folder should match the slug version of the title:
     
     if the title is **How to reverse a string**, 
     
