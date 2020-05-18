@@ -13,6 +13,10 @@ Each snippet:
 {{- end -}}
 {{end}}
 
+## Comments
+
+https://gophersnippets.com uses Github issues for comments, powered by https://utteranc.es/. You can add comments directly on the corresponding Github issue or use the comment form under each code section. 
+
 ## Contributing
 
 You are welcome to contribute testable Go code snippets.
