@@ -14,7 +14,7 @@
             <h2 class="text-dark">GopherSnippets <span class="float-right"><a class="github-button" href="https://github.com/psampaz/gophersnippets" data-show-count="true" aria-label="Star psampaz/gophersnippets on GitHub">Star</a></span></h2>
             <p class="cite">Code snippets with tests and testable examples for the Go programming language</p>
             <h4>How to filter a slice</h4>
-            <a href="https://gophersnippets.com">Snippets Index</a> - <a target="_blank" href="https://play.golang.org/p/8u6kr3krqeJ">Run code on Go playground</a> -
+            <a href="https://gophersnippets.com">Snippets Index</a> - <a target="_blank" href="https://play.golang.org/p/gExArA6On-d">Run code on Go playground</a> -
             <a target="_blank"
                href="https://github.com/psampaz/gophersnippets/blob/master/snippets/how-to-filter-a-slice/main_test.go">Edit</a>
             <p>
@@ -26,44 +26,44 @@
 <span class="p">)</span>
 
 <span class="c1">// FilterSlice filters a slice based on a predicate
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">FilterSlice</span><span class="p">(</span><span class="nx">a</span> <span class="p">[]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">keep</span> <span class="kd">func</span><span class="p">(</span><span class="nx">x</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span><span class="p">)</span> <span class="p">[]</span><span class="kt">int</span> <span class="p">{</span>
-	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
-		<span class="k">return</span> <span class="nx">a</span>
+</span><span class="c1"></span><span class="kd">func</span> <span class="nf">FilterSlice</span><span class="p">(</span><span class="nx">s</span> <span class="p">[]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">keep</span> <span class="kd">func</span><span class="p">(</span><span class="nx">x</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span><span class="p">)</span> <span class="p">[]</span><span class="kt">int</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="nx">s</span>
 	<span class="p">}</span>
 
 	<span class="nx">n</span> <span class="o">:=</span> <span class="mi">0</span>
-	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">a</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">s</span> <span class="p">{</span>
 		<span class="k">if</span> <span class="nf">keep</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
-			<span class="nx">a</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span> <span class="p">=</span> <span class="nx">v</span>
+			<span class="nx">s</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span> <span class="p">=</span> <span class="nx">v</span>
 			<span class="nx">n</span><span class="o">++</span>
 		<span class="p">}</span>
 	<span class="p">}</span>
 
-	<span class="k">return</span> <span class="nx">a</span><span class="p">[:</span><span class="nx">n</span><span class="p">]</span>
+	<span class="k">return</span> <span class="nx">s</span><span class="p">[:</span><span class="nx">n</span><span class="p">]</span>
 <span class="p">}</span>
 
 <span class="kd">func</span> <span class="nf">TestFilterInt</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
 	<span class="nx">tests</span> <span class="o">:=</span> <span class="p">[]</span><span class="kd">struct</span> <span class="p">{</span>
 		<span class="nx">name</span> <span class="kt">string</span>
-		<span class="nx">a</span>    <span class="p">[]</span><span class="kt">int</span>
+		<span class="nx">s</span>    <span class="p">[]</span><span class="kt">int</span>
 		<span class="nx">keep</span> <span class="kd">func</span><span class="p">(</span><span class="nx">x</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span>
 		<span class="nx">want</span> <span class="p">[]</span><span class="kt">int</span>
 	<span class="p">}{</span>
 		<span class="p">{</span>
 			<span class="nx">name</span><span class="p">:</span> <span class="s">&#34;nil slice&#34;</span><span class="p">,</span>
-			<span class="nx">a</span><span class="p">:</span>    <span class="kc">nil</span><span class="p">,</span>
+			<span class="nx">s</span><span class="p">:</span>    <span class="kc">nil</span><span class="p">,</span>
 			<span class="nx">keep</span><span class="p">:</span> <span class="kd">func</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span> <span class="nb">panic</span><span class="p">(</span><span class="s">&#34;not implemented&#34;</span><span class="p">)</span> <span class="p">},</span>
 			<span class="nx">want</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span>
 		<span class="p">},</span>
 		<span class="p">{</span>
 			<span class="nx">name</span><span class="p">:</span> <span class="s">&#34;empty slice&#34;</span><span class="p">,</span>
-			<span class="nx">a</span><span class="p">:</span>    <span class="p">[]</span><span class="kt">int</span><span class="p">{},</span>
+			<span class="nx">s</span><span class="p">:</span>    <span class="p">[]</span><span class="kt">int</span><span class="p">{},</span>
 			<span class="nx">keep</span><span class="p">:</span> <span class="kd">func</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span> <span class="nb">panic</span><span class="p">(</span><span class="s">&#34;not implemented&#34;</span><span class="p">)</span> <span class="p">},</span>
 			<span class="nx">want</span><span class="p">:</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{},</span>
 		<span class="p">},</span>
 		<span class="p">{</span>
 			<span class="nx">name</span><span class="p">:</span> <span class="s">&#34;non empty slice&#34;</span><span class="p">,</span>
-			<span class="nx">a</span><span class="p">:</span>    <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">},</span>
+			<span class="nx">s</span><span class="p">:</span>    <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">},</span>
 			<span class="nx">keep</span><span class="p">:</span> <span class="kd">func</span><span class="p">(</span><span class="nx">x</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
 				<span class="k">return</span> <span class="nx">x</span> <span class="p">&lt;</span> <span class="mi">5</span>
 			<span class="p">},</span>
@@ -72,7 +72,7 @@
 	<span class="p">}</span>
 	<span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">tt</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">tests</span> <span class="p">{</span>
 		<span class="nx">t</span><span class="p">.</span><span class="nf">Run</span><span class="p">(</span><span class="nx">tt</span><span class="p">.</span><span class="nx">name</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">t</span> <span class="o">*</span><span class="nx">testing</span><span class="p">.</span><span class="nx">T</span><span class="p">)</span> <span class="p">{</span>
-			<span class="k">if</span> <span class="nx">got</span> <span class="o">:=</span> <span class="nf">FilterSlice</span><span class="p">(</span><span class="nx">tt</span><span class="p">.</span><span class="nx">a</span><span class="p">,</span> <span class="nx">tt</span><span class="p">.</span><span class="nx">keep</span><span class="p">);</span> <span class="p">!</span><span class="nx">reflect</span><span class="p">.</span><span class="nf">DeepEqual</span><span class="p">(</span><span class="nx">got</span><span class="p">,</span> <span class="nx">tt</span><span class="p">.</span><span class="nx">want</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">if</span> <span class="nx">got</span> <span class="o">:=</span> <span class="nf">FilterSlice</span><span class="p">(</span><span class="nx">tt</span><span class="p">.</span><span class="nx">s</span><span class="p">,</span> <span class="nx">tt</span><span class="p">.</span><span class="nx">keep</span><span class="p">);</span> <span class="p">!</span><span class="nx">reflect</span><span class="p">.</span><span class="nf">DeepEqual</span><span class="p">(</span><span class="nx">got</span><span class="p">,</span> <span class="nx">tt</span><span class="p">.</span><span class="nx">want</span><span class="p">)</span> <span class="p">{</span>
 				<span class="nx">t</span><span class="p">.</span><span class="nf">Errorf</span><span class="p">(</span><span class="s">&#34;FilterSlice() = %v, want %v&#34;</span><span class="p">,</span> <span class="nx">got</span><span class="p">,</span> <span class="nx">tt</span><span class="p">.</span><span class="nx">want</span><span class="p">)</span>
 			<span class="p">}</span>
 		<span class="p">})</span>
