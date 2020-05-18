@@ -5,9 +5,10 @@ Each snippet:
  - contains at least one test or testable example
  - runs on [Go playground](https://play.golang.org/) since it now supports tests and testable examples  
 
+## Snippets
 {{ $repo := .Repo}}
 {{range $category := .Categories}}
-## {{$category}}
+### {{$category}}
 {{- range $snippet := index $.Snippets $category }}
  - [{{$snippet.Title}}](https://gophersnippets.com/{{$snippet.DirectoryName}})
 {{- end -}}
