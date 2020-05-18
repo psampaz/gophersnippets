@@ -5,31 +5,32 @@ Each snippet:
  - contains at least one test or testable example
  - runs on [Go playground](https://play.golang.org/) since it now supports tests and testable examples  
 
+## Snippets
 
 
-## Conversions
+### Conversions
  - [How to convert int to string](https://gophersnippets.com/how-to-convert-int-to-string)
-## HTTP
+### HTTP
  - [How to print a raw HTTP response](https://gophersnippets.com/how-to-print-a-raw-http-response)
  - [How to read an HTTP response status code](https://gophersnippets.com/how-to-read-an-http-response-status-code)
-## Interfaces
+### Interfaces
  - [How to check if a type satisfies an interface at runtime](https://gophersnippets.com/how-to-check-if-a-type-satisfies-an-interface-at-runtime)
-## Maps
+### Maps
  - [How to copy a map](https://gophersnippets.com/how-to-copy-a-map)
  - [How to create a set using a map](https://gophersnippets.com/how-to-create-a-set-using-a-map)
-## Numbers
+### Numbers
  - [How to calculate the sum of multiple numbers](https://gophersnippets.com/how-to-calculate-the-sum-of-multiple-numbers)
  - [What is the maximum value of numeric types](https://gophersnippets.com/what-is-the-maximum-value-of-numeric-types)
-## Other
+### Other
  - [How to format Go code programmatically](https://gophersnippets.com/how-to-format-go-code-programmatically)
  - [How to print the binary representation of an integer](https://gophersnippets.com/how-to-print-the-binary-representation-of-an-integer)
  - [How to print the same variable multiple times using printf](https://gophersnippets.com/how-to-print-the-same-variable-multiple-times-using-printf)
-## Parser
+### Parser
  - [How to parse comments from Go Code](https://gophersnippets.com/how-to-parse-comments-from-go-code)
-## Runtime
+### Runtime
  - [How to print Go version](https://gophersnippets.com/how-to-print-go-version)
  - [How to print information about the operating system, architecture and pointer size](https://gophersnippets.com/how-to-print-information-about-the-operating-system-architecture-and-pointer-size)
-## Slices
+### Slices
  - [How to check if a slice contains a specific element](https://gophersnippets.com/how-to-check-if-a-slice-contains-a-specific-element)
  - [How to delete an element from a slice](https://gophersnippets.com/how-to-delete-an-element-from-a-slice)
  - [How to filter a slice](https://gophersnippets.com/how-to-filter-a-slice)
@@ -38,7 +39,7 @@ Each snippet:
  - [How to remove duplicate elements from a slice](https://gophersnippets.com/how-to-remove-duplicate-elements-from-a-slice)
  - [How to reverse a slice](https://gophersnippets.com/how-to-reverse-a-slice)
  - [How to shuffle a slice](https://gophersnippets.com/how-to-shuffle-a-slice)
-## Strings
+### Strings
  - [How to calculate the hamming distance between two strings](https://gophersnippets.com/how-to-calculate-the-hamming-distance-between-two-strings)
  - [How to check if a string ends with a substring](https://gophersnippets.com/how-to-check-if-a-string-ends-with-a-substring)
  - [How to check if a string is lowercase](https://gophersnippets.com/how-to-check-if-a-string-is-lowercase)
@@ -52,9 +53,9 @@ Each snippet:
  - [How to get the sha256 checksum of a string](https://gophersnippets.com/how-to-get-the-sha256-checksum-of-a-string)
  - [How to pretty print JSON](https://gophersnippets.com/how-to-pretty-print-json)
  - [How to reverse a string](https://gophersnippets.com/how-to-reverse-a-string)
-## Testing
+### Testing
  - [How to test a function that panics](https://gophersnippets.com/how-to-test-a-function-that-panics)
-## Time
+### Time
  - [How to measure the execution time of a function](https://gophersnippets.com/how-to-measure-the-execution-time-of-a-function)
 
 ## Comments
