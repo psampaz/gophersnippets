@@ -57,6 +57,10 @@ Each snippet:
 ## Time
  - [How to measure the execution time of a function](https://gophersnippets.com/how-to-measure-the-execution-time-of-a-function)
 
+## Comments
+
+https://gophersnippets.com uses Github issues for comments, powered by https://utteranc.es/. You can add comments directly on the corresponding Github issue or use the comment form under each code section. 
+
 ## Contributing
 
 You are welcome to contribute testable Go code snippets.
