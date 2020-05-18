@@ -19,7 +19,7 @@ func Example() {
 		Lessons: []string{
 			"Mathematics",
 			"Computer science",
-			"Philoshopy",
+			"Philosophy",
 		},
 	}
 
@@ -50,7 +50,7 @@ func Example() {
 	//	"Lessons": [
 	//		"Mathematics",
 	//		"Computer science",
-	//		"Philoshopy"
+	//		"Philosophy"
 	//	]
 	// }
 }
