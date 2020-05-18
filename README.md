@@ -32,6 +32,7 @@ Each snippet:
 ## Slices
  - [How to check if a slice contains a specific element](https://gophersnippets.com/how-to-check-if-a-slice-contains-a-specific-element)
  - [How to delete an element from a slice](https://gophersnippets.com/how-to-delete-an-element-from-a-slice)
+ - [How to filter a slice](https://gophersnippets.com/how-to-filter-a-slice)
  - [How to find the maximum element of a slice](https://gophersnippets.com/how-to-find-the-maximum-element-of-a-slice)
  - [How to find the minimum element of a slice](https://gophersnippets.com/how-to-find-the-minimum-element-of-a-slice)
  - [How to remove duplicate elements from a slice](https://gophersnippets.com/how-to-remove-duplicate-elements-from-a-slice)
