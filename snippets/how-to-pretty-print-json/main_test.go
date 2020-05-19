@@ -41,7 +41,7 @@ func Example() {
 	// Output:
 	//
 	// Ugly print:
-	// {"Name":"John","Age":"17","Lessons":["Mathematics","Computer science","Philoshopy"]}
+	// {"Name":"John","Age":"17","Lessons":["Mathematics","Computer science","Philosophy"]}
 	//
 	// Pretty print:
 	// {
