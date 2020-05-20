@@ -16,10 +16,6 @@ jobs:
         run: |
           cd snippets
           go vet ./...
-      - name: go test
-        run: |
-          cd snippets
-          go test -race ./...
       - name: code compiles on playground, includes tests and has the correct format
         run: |
           ./bin/gophersnippets -pr-check -playground -playground-ua="gophersnippets.com/v1"
