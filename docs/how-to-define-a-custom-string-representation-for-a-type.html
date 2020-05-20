@@ -14,11 +14,20 @@
             <h2 class="text-dark"><a href="https://gophersnippets.com" style="text-decoration: none" class="text-dark">GopherSnippets</a><span class="float-right"><a class="github-button" href="https://github.com/psampaz/gophersnippets" data-show-count="true" aria-label="Star psampaz/gophersnippets on GitHub">Star</a></span></h2>
             <p class="cite">Code snippets with tests and testable examples for the Go programming language</p>
             <h4>How to define a custom string representation for a type</h4>
-            <a href="https://gophersnippets.com">Snippets Index</a> - <a target="_blank" href="https://play.golang.org/p/lG4IoEDX5OR">Run code on Go playground</a> -
+            <a href="https://gophersnippets.com">Snippets Index</a> - <a target="_blank" href="https://play.golang.org/p/7gtVkS3hD1s">Run code on Go playground</a> -
             <a target="_blank"
                href="https://github.com/psampaz/gophersnippets/blob/master/snippets/how-to-define-a-custom-string-representation-for-a-type/main_test.go">Edit</a>
             <p>
-                <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
+                <pre class="chroma"><span class="c1">// To control the string representation of a type
+</span><span class="c1">// the type needs to implement the Stringer interface
+</span><span class="c1">// https://pkg.go.dev/fmt?tab=doc#Stringer
+</span><span class="c1">// type Stringer interface {
+</span><span class="c1">//	String() string
+</span><span class="c1">// }
+</span><span class="c1">// The String method is used to print values passed as an operand
+</span><span class="c1">// to any format that accepts a string or to an unformatted printer
+</span><span class="c1">// such as Print.
+</span><span class="c1"></span><span class="kn">package</span> <span class="nx">main</span>
 
 <span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
 
@@ -52,16 +61,7 @@
 	<span class="p">}</span>
 <span class="p">}</span>
 
-<span class="c1">// To control the string representation of a type
-</span><span class="c1">// the type needs to implement the Stringer interface
-</span><span class="c1">// https://pkg.go.dev/fmt?tab=doc#Stringer
-</span><span class="c1">// type Stringer interface {
-</span><span class="c1">//	String() string
-</span><span class="c1">// }
-</span><span class="c1">// The String method is used to print values passed as an operand
-</span><span class="c1">// to any format that accepts a string or to an unformatted printer
-</span><span class="c1">// such as Print.
-</span><span class="c1"></span><span class="kd">func</span> <span class="nf">Example</span><span class="p">()</span> <span class="p">{</span>
+<span class="kd">func</span> <span class="nf">Example</span><span class="p">()</span> <span class="p">{</span>
 	<span class="nx">a</span> <span class="o">:=</span> <span class="nx">UserA</span><span class="p">{</span><span class="s">&#34;John&#34;</span><span class="p">,</span> <span class="s">&#34;Doe&#34;</span><span class="p">}</span>
 	<span class="nx">b</span> <span class="o">:=</span> <span class="nx">UserB</span><span class="p">{</span><span class="s">&#34;John&#34;</span><span class="p">,</span> <span class="s">&#34;Doe&#34;</span><span class="p">}</span>
 	<span class="nx">c</span> <span class="o">:=</span> <span class="nf">BoolA</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
