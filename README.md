@@ -17,8 +17,8 @@ Each snippet:
  - [How to check if a type satisfies an interface at runtime](https://gophersnippets.com/how-to-check-if-a-type-satisfies-an-interface-at-runtime)
 ### Logging
  - [How to create multiple loggers](https://gophersnippets.com/how-to-create-multiple-loggers)
+ - [How to disable log output](https://gophersnippets.com/how-to-disable-log-output)
  - [How to include the filename and the line number in a logger output](https://gophersnippets.com/how-to-include-the-filename-and-the-line-number-in-a-logger-output)
- - [how to disable log output](https://gophersnippets.com/how-to-disable-log-output)
 ### Maps
  - [How to copy a map](https://gophersnippets.com/how-to-copy-a-map)
  - [How to create a set using a map](https://gophersnippets.com/how-to-create-a-set-using-a-map)
@@ -54,7 +54,6 @@ Each snippet:
  - [How to concatenate strings](https://gophersnippets.com/how-to-concatenate-strings)
  - [How to count the number of words in a string](https://gophersnippets.com/how-to-count-the-number-of-words-in-a-string)
  - [How to define a custom string representation for a type](https://gophersnippets.com/how-to-define-a-custom-string-representation-for-a-type)
- - [How to define a custom string representation of a type](https://gophersnippets.com/how-to-define-a-custom-string-representation-of-a-type)
  - [How to get the md5 checksum of a string](https://gophersnippets.com/how-to-get-the-md5-checksum-of-a-string)
  - [How to get the sha1 checksum of a string](https://gophersnippets.com/how-to-get-the-sha1-checksum-of-a-string)
  - [How to get the sha256 checksum of a string](https://gophersnippets.com/how-to-get-the-sha256-checksum-of-a-string)
