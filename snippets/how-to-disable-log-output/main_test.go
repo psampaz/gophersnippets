@@ -1,4 +1,4 @@
-// Logging: how to disable log output
+// Logging: How to disable log output
 package main
 
 import (
