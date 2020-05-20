@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/spectre.min.css">
+    <link rel=stylesheet href="css/highlight.css">
+    <title>How to check that a time value is a specific day of the week - GopherSnippets.com</title>
+</head>
+<body>
+<div class="container">
+    <div class="columns">
+        <div class="column col-xs-4"></div>
+        <div class="column col-xs-4">
+            <h2 class="text-dark"><a href="https://gophersnippets.com" style="text-decoration: none" class="text-dark">GopherSnippets</a><span class="float-right"><a class="github-button" href="https://github.com/psampaz/gophersnippets" data-show-count="true" aria-label="Star psampaz/gophersnippets on GitHub">Star</a></span></h2>
+            <p class="cite">Code snippets with tests and testable examples for the Go programming language</p>
+            <h4>How to check that a time value is a specific day of the week</h4>
+            <a href="https://gophersnippets.com">Snippets Index</a> - <a target="_blank" href="https://play.golang.org/p/9OyXJGI-0IO">Run code on Go playground</a> -
+            <a target="_blank"
+               href="https://github.com/psampaz/gophersnippets/blob/master/snippets/how-to-check-that-a-time-value-is-a-specific-day-of-the-week/main_test.go">Edit</a>
+            <p>
+                <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;fmt&#34;</span>
+	<span class="s">&#34;time&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">Example</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">// The time package offers a time.Weekday() method which returns
+</span><span class="c1"></span>	<span class="c1">// a time.Weekday value	https://pkg.go.dev/time?tab=doc#Weekday
+</span><span class="c1"></span>	<span class="nx">now</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()</span>
+	<span class="k">if</span> <span class="nx">now</span><span class="p">.</span><span class="nf">Weekday</span><span class="p">()</span> <span class="o">==</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Tuesday</span> <span class="p">{</span>
+		<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;The day on Go playground is always Tuesday&#34;</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="c1">// Output:
+</span><span class="c1"></span>	<span class="c1">// The day on Go playground is always Tuesday
+</span><span class="c1"></span><span class="p">}</span>
+</pre>
+            </p>
+            <p>
+                <span class="text-gray">by</span> <a href="https://github.com/psampaz" class="text-gray">psampaz</a> -
+                <a href="https://github.com/psampaz/gophersnippets" class="text-gray">source code</a> - <span class="text-gray">comment below or</span> <a target="_blank"
+                                                                                                                               href="https://github.com/psampaz/gophersnippets/issues/63" class="text-gray">here</a>
+            </p>
+            <script src="https://utteranc.es/client.js"
+                    repo="psampaz/gophersnippets"
+                    issue-number="63"
+                    theme="github-light"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+        <div class="column col-xs-4"></div>
+    </div>
+</div>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+</html>

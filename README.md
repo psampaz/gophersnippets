@@ -15,6 +15,10 @@ Each snippet:
  - [How to read an HTTP response status code](https://gophersnippets.com/how-to-read-an-http-response-status-code)
 ### Interfaces
  - [How to check if a type satisfies an interface at runtime](https://gophersnippets.com/how-to-check-if-a-type-satisfies-an-interface-at-runtime)
+### Logging
+ - [How to create multiple loggers](https://gophersnippets.com/how-to-create-multiple-loggers)
+ - [How to include the filename and the line number in a logger output](https://gophersnippets.com/how-to-include-the-filename-and-the-line-number-in-a-logger-output)
+ - [how to disable log output](https://gophersnippets.com/how-to-disable-log-output)
 ### Maps
  - [How to copy a map](https://gophersnippets.com/how-to-copy-a-map)
  - [How to create a set using a map](https://gophersnippets.com/how-to-create-a-set-using-a-map)
@@ -39,6 +43,7 @@ Each snippet:
  - [How to remove duplicate elements from a slice](https://gophersnippets.com/how-to-remove-duplicate-elements-from-a-slice)
  - [How to reverse a slice](https://gophersnippets.com/how-to-reverse-a-slice)
  - [How to shuffle a slice](https://gophersnippets.com/how-to-shuffle-a-slice)
+ - [How to split a slice in chunks](https://gophersnippets.com/how-to-split-a-slice-in-chunks)
 ### Strings
  - [How to calculate the hamming distance between two strings](https://gophersnippets.com/how-to-calculate-the-hamming-distance-between-two-strings)
  - [How to check if a string ends with a substring](https://gophersnippets.com/how-to-check-if-a-string-ends-with-a-substring)
@@ -48,6 +53,8 @@ Each snippet:
  - [How to check if string is valid JSON](https://gophersnippets.com/how-to-check-if-string-is-valid-json)
  - [How to concatenate strings](https://gophersnippets.com/how-to-concatenate-strings)
  - [How to count the number of words in a string](https://gophersnippets.com/how-to-count-the-number-of-words-in-a-string)
+ - [How to define a custom string representation for a type](https://gophersnippets.com/how-to-define-a-custom-string-representation-for-a-type)
+ - [How to define a custom string representation of a type](https://gophersnippets.com/how-to-define-a-custom-string-representation-of-a-type)
  - [How to get the md5 checksum of a string](https://gophersnippets.com/how-to-get-the-md5-checksum-of-a-string)
  - [How to get the sha1 checksum of a string](https://gophersnippets.com/how-to-get-the-sha1-checksum-of-a-string)
  - [How to get the sha256 checksum of a string](https://gophersnippets.com/how-to-get-the-sha256-checksum-of-a-string)
@@ -56,6 +63,7 @@ Each snippet:
 ### Testing
  - [How to test a function that panics](https://gophersnippets.com/how-to-test-a-function-that-panics)
 ### Time
+ - [How to check that a time value is a specific day of the week](https://gophersnippets.com/how-to-check-that-a-time-value-is-a-specific-day-of-the-week)
  - [How to measure the execution time of a function](https://gophersnippets.com/how-to-measure-the-execution-time-of-a-function)
 
 ## Comments

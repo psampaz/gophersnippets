@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/spectre.min.css">
+    <link rel=stylesheet href="css/highlight.css">
+    <title>how to disable log output - GopherSnippets.com</title>
+</head>
+<body>
+<div class="container">
+    <div class="columns">
+        <div class="column col-xs-4"></div>
+        <div class="column col-xs-4">
+            <h2 class="text-dark"><a href="https://gophersnippets.com" style="text-decoration: none" class="text-dark">GopherSnippets</a><span class="float-right"><a class="github-button" href="https://github.com/psampaz/gophersnippets" data-show-count="true" aria-label="Star psampaz/gophersnippets on GitHub">Star</a></span></h2>
+            <p class="cite">Code snippets with tests and testable examples for the Go programming language</p>
+            <h4>how to disable log output</h4>
+            <a href="https://gophersnippets.com">Snippets Index</a> - <a target="_blank" href="https://play.golang.org/p/sfiBcP5b3lj">Run code on Go playground</a> -
+            <a target="_blank"
+               href="https://github.com/psampaz/gophersnippets/blob/master/snippets/how-to-disable-log-output/main_test.go">Edit</a>
+            <p>
+                <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;io/ioutil&#34;</span>
+	<span class="s">&#34;log&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">Example</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">// If you want to disable log output (during test for example)
+</span><span class="c1"></span>	<span class="c1">// you have to set the logger ouput to ioutil.Discard
+</span><span class="c1"></span>	<span class="c1">// which is an io.Writer on which all Write calls succeed
+</span><span class="c1"></span>	<span class="c1">// without doing anything
+</span><span class="c1"></span>	<span class="nx">log</span><span class="p">.</span><span class="nf">SetOutput</span><span class="p">(</span><span class="nx">ioutil</span><span class="p">.</span><span class="nx">Discard</span><span class="p">)</span>
+	<span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;log disabled&#34;</span><span class="p">)</span>
+	<span class="c1">// Output:
+</span><span class="c1"></span>	<span class="c1">//
+</span><span class="c1"></span><span class="p">}</span>
+</pre>
+            </p>
+            <p>
+                <span class="text-gray">by</span> <a href="https://github.com/psampaz" class="text-gray">psampaz</a> -
+                <a href="https://github.com/psampaz/gophersnippets" class="text-gray">source code</a> - <span class="text-gray">comment below or</span> <a target="_blank"
+                                                                                                                               href="https://github.com/psampaz/gophersnippets/issues/67" class="text-gray">here</a>
+            </p>
+            <script src="https://utteranc.es/client.js"
+                    repo="psampaz/gophersnippets"
+                    issue-number="67"
+                    theme="github-light"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+        <div class="column col-xs-4"></div>
+    </div>
+</div>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+</html>

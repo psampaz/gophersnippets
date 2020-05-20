@@ -11,7 +11,7 @@ func Example() {
 	// Each logger can write logs in different targets, use different prefix
 	// and different settings
 	logger1 := log.New(os.Stdout, "logger1: ", log.LstdFlags)
-	logger2 := log.New(os.Stdout, "logger2: ", log.LstdFlags | log.Lmicroseconds)
+	logger2 := log.New(os.Stdout, "logger2: ", log.LstdFlags|log.Lmicroseconds)
 	logger1.Println("Message from logger1")
 	logger2.Println("Message from logger2")
 	// Output:

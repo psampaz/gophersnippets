@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/spectre.min.css">
+    <link rel=stylesheet href="css/highlight.css">
+    <title>How to create multiple loggers - GopherSnippets.com</title>
+</head>
+<body>
+<div class="container">
+    <div class="columns">
+        <div class="column col-xs-4"></div>
+        <div class="column col-xs-4">
+            <h2 class="text-dark"><a href="https://gophersnippets.com" style="text-decoration: none" class="text-dark">GopherSnippets</a><span class="float-right"><a class="github-button" href="https://github.com/psampaz/gophersnippets" data-show-count="true" aria-label="Star psampaz/gophersnippets on GitHub">Star</a></span></h2>
+            <p class="cite">Code snippets with tests and testable examples for the Go programming language</p>
+            <h4>How to create multiple loggers</h4>
+            <a href="https://gophersnippets.com">Snippets Index</a> - <a target="_blank" href="https://play.golang.org/p/sSKvRejFoww">Run code on Go playground</a> -
+            <a target="_blank"
+               href="https://github.com/psampaz/gophersnippets/blob/master/snippets/how-to-create-multiple-loggers/main_test.go">Edit</a>
+            <p>
+                <pre class="chroma"><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;log&#34;</span>
+	<span class="s">&#34;os&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">Example</span><span class="p">()</span> <span class="p">{</span>
+	<span class="c1">// You can create as many loggers you want using the log.New method
+</span><span class="c1"></span>	<span class="c1">// Each logger can write logs in different targets, use different prefix
+</span><span class="c1"></span>	<span class="c1">// and different settings
+</span><span class="c1"></span>	<span class="nx">logger1</span> <span class="o">:=</span> <span class="nx">log</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span> <span class="s">&#34;logger1: &#34;</span><span class="p">,</span> <span class="nx">log</span><span class="p">.</span><span class="nx">LstdFlags</span><span class="p">)</span>
+	<span class="nx">logger2</span> <span class="o">:=</span> <span class="nx">log</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span> <span class="s">&#34;logger2: &#34;</span><span class="p">,</span> <span class="nx">log</span><span class="p">.</span><span class="nx">LstdFlags</span><span class="p">|</span><span class="nx">log</span><span class="p">.</span><span class="nx">Lmicroseconds</span><span class="p">)</span>
+	<span class="nx">logger1</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Message from logger1&#34;</span><span class="p">)</span>
+	<span class="nx">logger2</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Message from logger2&#34;</span><span class="p">)</span>
+	<span class="c1">// Output:
+</span><span class="c1"></span>	<span class="c1">// logger1: 2009/11/10 23:00:00 Message from logger1
+</span><span class="c1"></span>	<span class="c1">// logger2: 2009/11/10 23:00:00.000000 Message from logger2
+</span><span class="c1"></span><span class="p">}</span>
+</pre>
+            </p>
+            <p>
+                <span class="text-gray">by</span> <a href="https://github.com/psampaz" class="text-gray">psampaz</a> -
+                <a href="https://github.com/psampaz/gophersnippets" class="text-gray">source code</a> - <span class="text-gray">comment below or</span> <a target="_blank"
+                                                                                                                               href="https://github.com/psampaz/gophersnippets/issues/64" class="text-gray">here</a>
+            </p>
+            <script src="https://utteranc.es/client.js"
+                    repo="psampaz/gophersnippets"
+                    issue-number="64"
+                    theme="github-light"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+        <div class="column col-xs-4"></div>
+    </div>
+</div>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+</html>
