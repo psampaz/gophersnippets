@@ -1,4 +1,14 @@
 // Strings: How to define a custom string representation for a type
+//
+// To control the string representation of a type
+// the type needs to implement the Stringer interface
+// https://pkg.go.dev/fmt?tab=doc#Stringer
+// type Stringer interface {
+//	String() string
+// }
+// The String method is used to print values passed as an operand
+// to any format that accepts a string or to an unformatted printer
+// such as Print.
 package main
 
 import "fmt"
@@ -33,15 +43,6 @@ func (b BoolB) String() string {
 	}
 }
 
-// To control the string representation of a type
-// the type needs to implement the Stringer interface
-// https://pkg.go.dev/fmt?tab=doc#Stringer
-// type Stringer interface {
-//	String() string
-// }
-// The String method is used to print values passed as an operand
-// to any format that accepts a string or to an unformatted printer
-// such as Print.
 func Example() {
 	a := UserA{"John", "Doe"}
 	b := UserB{"John", "Doe"}
