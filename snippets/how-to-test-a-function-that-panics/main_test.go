@@ -12,7 +12,7 @@ func f(shouldPanic bool) string {
 
 func Test_f(t *testing.T) {
 	t.Run("panics", func(t *testing.T) {
-		// If function that panics, recover() will
+		// If the function panics, recover() will
 		// return a non nil value.
 		defer func() {
 			if r := recover(); r == nil {
